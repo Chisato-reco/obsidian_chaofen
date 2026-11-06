@@ -2,5 +2,6 @@
   "zotero-integration",
   "dataview",
   "templater-obsidian",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-zotero-desktop-connector"
 ]
