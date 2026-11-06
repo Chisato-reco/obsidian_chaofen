@@ -1,0 +1,33 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "10_Literature",
+  "openNoteAfterImport": true,
+  "whichNotesToOpenAfterImport": "first-imported-note",
+  "pdfExportImageDPI": 150,
+  "pdfExportImageFormat": "png",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "Insert Markdown Citation",
+      "format": "markdown",
+      "template": "[@{{citekey}}]"
+    },
+    {
+      "name": "Insert Zotero Link",
+      "format": "markdown",
+      "template": "[{{title}}](zotero://select/items/@{{citekey}})"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Create Literature Note",
+      "outputPathTemplate": "10_Literature/{{citekey}}.md",
+      "templatePath": "90_Templates/Template - Zotero Literature Note.md",
+      "imageOutputPathTemplate": "99_Attachments/{{citekey}}/",
+      "imageBaseNameTemplate": "image-{{page}}",
+      "cslStyle": ""
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "shouldConcat": false
+}

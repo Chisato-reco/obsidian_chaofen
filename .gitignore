@@ -1,0 +1,27 @@
+# Obsidian Workspace and Cache
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.trash/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python / PyTorch temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Large model weights (keep vault lightweight)
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.onnx
+*.h5
+
+# Local scratch
+scratch/

@@ -1,0 +1,13 @@
+{
+  "attachmentFolderPath": "99_Attachments",
+  "newFileFolderPath": "00_Inbox",
+  "newFileLocation": "folder",
+  "showLineNumber": true,
+  "alwaysUpdateLinks": true,
+  "useTab": false,
+  "tabSize": 4,
+  "promptDelete": true,
+  "livePreview": true,
+  "spellcheck": false,
+  "strictLineBreaks": false
+}
