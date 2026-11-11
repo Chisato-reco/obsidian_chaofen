@@ -15,7 +15,9 @@ Zotero 保存文献、PDF 和阅读批注；Obsidian 保存论文总结、知识
 | 自定义引用模板未生效 | 原引用格式为 `markdown`，插件只有在 `format=template` 时才使用自定义模板；已修正。 |
 | 文献模板导入报错或元数据为空 | `date` 过滤器不存在，应使用 `format`；摘要、DOI、条目链接改为 `abstractNote`、`DOI`、`desktopURI`；修复重复嵌套的 PDF Markdown 链接，并对标题等 YAML 字段转义。 |
 | 重复导入可能丢失个人总结 | 原模板只保护了一个空白笔记区。已给论文核心脉络和科研思考增加 `research-summary` 保留区，并仅在首次导入时生成提示。 |
-| GitHub 不能正常同步 | `origin` 已关联上述仓库，但本地初始化历史与远端初始化历史不相连；需合并历史后普通推送，不能强制覆盖。 |
+| GitHub 不能正常同步 | `origin` 已关联上述仓库，但本地初始化历史与远端初始化历史不相连；已合并并保留双方历史，后续使用普通推送。 |
+
+验证记录：Better BibTeX 探测返回 `200 ready`；JSON-RPC 返回 Zotero / Better BibTeX 版本；成功读取本机论文及 10 条批注，使用已安装插件的模板引擎验证元数据、批注渲染和重复导入保护。PDF Utility 1.0.15 已安装，并只读提取同一 PDF 的 10 条内嵌批注。自动化验证未操作交互式选文献窗口；完整日常导入步骤见第 4 节。
 
 Better BibTeX 是这条 Zotero Integration 工作流的**必要依赖**；把 XPI 放进笔记附件目录不等于安装或启用。依据：[Zotero Integration 项目说明](https://github.com/community-archive/obsidian-zotero-integration)、[Better BibTeX 安装说明](https://retorque.re/zotero-better-bibtex/installation/)。
 
