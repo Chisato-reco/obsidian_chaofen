@@ -57,4 +57,5 @@ SORT file.name ASC
 ## ⚡ 常用快捷操作指南 (Cheat Sheet)
 1. **从 Zotero 导入文献笔记**: 按快捷键 `Ctrl + P` 输入 `Zotero Integration: Create Literature Note`，选择论文即可自动抓取摘要、元数据与高亮批注。
 2. **记录一次训练实验**: 使用快捷键 `Ctrl + P` 选择 `Templater: Open Insert Template modal`，插入 `Template - Experiment Log`。
-3. **备份同步到 GitHub**: 点击左侧侧边栏 Git 图标或 `Ctrl + P` 选择 `Obsidian Git: Backup and sync`，仓库每 15 分钟会自动进行增量提交并同步至 GitHub。
+3. **备份同步到 GitHub**: 点击左侧侧边栏 Git 图标，或在 `Ctrl + P` 中搜索 Git 的备份/推送命令；当前每 15 分钟自动提交、每 30 分钟自动推送，成功同步需要网络和 GitHub 认证正常。
+4. **联动配置与故障排查**: [[README|Obsidian × Zotero 使用说明]]。

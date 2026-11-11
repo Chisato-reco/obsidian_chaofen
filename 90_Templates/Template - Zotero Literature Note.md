@@ -1,39 +1,42 @@
 ---
-title: "{{title}}"
-authors: "{{authors}}"
-year: {{year}}
-citekey: "{{citekey}}"
-itemType: "{{itemType}}"
-publication: "{{publicationTitle}}"
+title: {{title | dump | safe}}
+authors: {{authors | default("") | dump | safe}}
+year: {% if date %}{{date | format("YYYY")}}{% else %}null{% endif %}
+citekey: {{citekey | dump | safe}}
+itemType: {{itemType | dump | safe}}
+publication: {{publicationTitle | default("") | dump | safe}}
 status: 📥未读
 rating: ⭐️⭐️⭐️
 tags:
   - literature
   - 电镜超分
-date_imported: "{{importDate | date("YYYY-MM-DD HH:mm:ss")}}"
-doi: "{{doi}}"
-url: "{{url}}"
-zotero_link: "{{select}}"
+date_imported: "{{importDate | format("YYYY-MM-DD HH:mm:ss")}}"
+doi: {{DOI | default("") | dump | safe}}
+url: {{url | default("") | dump | safe}}
+zotero_link: {{desktopURI | default("") | dump | safe}}
 code_repo: ""
 ---
 
 # {{title}}
 
 > [!abstract]+ **论文摘要 (Abstract)**
-> {{abstract}}
+> {{abstractNote | default("") | replace("\n", "\n> ")}}
 
 ## 📌 元数据与链接 (Metadata)
 - **作者 (Authors)**: {{authors}}
-- **发表年份 (Year)**: {{year}}
+- **发表年份 (Year)**: {% if date %}{{date | format("YYYY")}}{% endif %}
 - **发表期刊/会议 (Publication)**: *{{publicationTitle}}*
-- **DOI**: [{{doi}}](https://doi.org/{{doi}})
-- **Zotero 条目**: [打开 Zotero 条目]({{select}})
-- **PDF 文件**: [在 Zotero 中阅读 PDF]({{pdfZoteroLink}})
+- **DOI**: {% if DOI %}[{{DOI}}](https://doi.org/{{DOI}}){% endif %}
+- **Zotero 条目**: [打开 Zotero 条目]({{desktopURI}})
+- **PDF 文件**: {{pdfZoteroLink}}
 - **开源代码 (Code)**: 
 
 ---
 
 ## 🎯 论文核心脉络 (Executive Summary)
+
+{% persist "research-summary" %}
+{% if isFirstImport %}
 
 ### 1. 研究背景与核心痛点 (Background & Problem)
 - 这篇论文要解决的核心问题是什么？（例如：电镜低信噪比、电子束辐照损伤导致的分辨率限制等）
@@ -62,12 +65,17 @@ code_repo: ""
 - **潜在风险与电镜场景的差异**: 
 - **后续尝试实验计划**: 
 
+{% endif %}
+{% endpersist %}
+
 ---
 
 ## 📝 批注与高亮摘录 (Extracted Annotations)
 
 {% persist "notes" %}
+{% if isFirstImport %}
 <!-- 你在阅读过程中写的个人笔记可写在此区域，重新从 Zotero 导入批注时不会被覆盖 -->
+{% endif %}
 {% endpersist %}
 
 {% for annotation in annotations -%}

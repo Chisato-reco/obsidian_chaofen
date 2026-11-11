@@ -9,13 +9,13 @@
   "citeFormats": [
     {
       "name": "Insert Markdown Citation",
-      "format": "markdown",
+      "format": "template",
       "template": "[@{{citekey}}]"
     },
     {
       "name": "Insert Zotero Link",
-      "format": "markdown",
-      "template": "[{{title}}](zotero://select/items/@{{citekey}})"
+      "format": "template",
+      "template": "[{{title}}]({{desktopURI}})"
     }
   ],
   "exportFormats": [
@@ -24,7 +24,7 @@
       "outputPathTemplate": "10_Literature/{{citekey}}.md",
       "templatePath": "90_Templates/Template - Zotero Literature Note.md",
       "imageOutputPathTemplate": "99_Attachments/{{citekey}}/",
-      "imageBaseNameTemplate": "image-{{page}}",
+      "imageBaseNameTemplate": "image",
       "cslStyle": ""
     }
   ],

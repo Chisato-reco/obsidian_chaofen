@@ -25,3 +25,11 @@ __pycache__/
 
 # Local scratch
 scratch/
+
+# Local PDF extraction utility; install separately on each computer
+.obsidian/plugins/obsidian-zotero-desktop-connector/pdfannots2json*.exe
+
+# Zotero installers and databases are not vault content
+*.xpi
+zotero.sqlite*
+better-bibtex.sqlite*
