@@ -29,5 +29,7 @@
     }
   ],
   "citeSuggestTemplate": "[[{{citekey}}]]",
-  "shouldConcat": false
+  "shouldConcat": false,
+  "exeVersion": "1.0.15",
+  "_exeInternalVersion": 1
 }

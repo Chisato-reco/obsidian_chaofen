@@ -78,53 +78,24 @@ code_repo: ""
 {% endif %}
 {% endpersist %}
 
-{% for annotation in annotations -%}
-{%- if annotation.annotatedText -%}
-{%- if annotation.colorCategory == "Yellow" -%}
-> [!quote]+ 🟡 重点概念 / 理论依据 (p. {{annotation.pageLabel}})
-> {{annotation.annotatedText}}
-{%- if annotation.comment %}
->> ✍️ **批注**: {{annotation.comment}}
-{%- endif %}
-[查看原文]({{annotation.desktopURI}})
-{%- elif annotation.colorCategory == "Green" -%}
-> [!note]+ 🟢 创新方法 / 核心架构 (p. {{annotation.pageLabel}})
-> {{annotation.annotatedText}}
-{%- if annotation.comment %}
->> ✍️ **批注**: {{annotation.comment}}
-{%- endif %}
-[查看原文]({{annotation.desktopURI}})
-{%- elif annotation.colorCategory == "Blue" -%}
-> [!example]+ 🔵 实验数据 / 基准结果 (p. {{annotation.pageLabel}})
-> {{annotation.annotatedText}}
-{%- if annotation.comment %}
->> ✍️ **批注**: {{annotation.comment}}
-{%- endif %}
-[查看原文]({{annotation.desktopURI}})
-{%- elif annotation.colorCategory == "Red" -%}
-> [!warning]+ 🔴 局限性 / 缺点批评 (p. {{annotation.pageLabel}})
-> {{annotation.annotatedText}}
-{%- if annotation.comment %}
->> ✍️ **批注**: {{annotation.comment}}
-{%- endif %}
-[查看原文]({{annotation.desktopURI}})
-{%- else -%}
-> [!quote] 📝 批注高亮 (p. {{annotation.pageLabel}})
-> {{annotation.annotatedText}}
-{%- if annotation.comment %}
->> ✍️ **批注**: {{annotation.comment}}
-{%- endif %}
-[查看原文]({{annotation.desktopURI}})
-{%- endif %}
-{%- endif %}
+{% for annotation in annotations %}
+{% if annotation.colorCategory == "Yellow" %}
+{% set callout = "quote" %}{% set label = "🟡 重点概念 / 理论依据" %}
+{% elif annotation.colorCategory == "Green" %}
+{% set callout = "note" %}{% set label = "🟢 创新方法 / 核心架构" %}
+{% elif annotation.colorCategory == "Blue" %}
+{% set callout = "example" %}{% set label = "🔵 实验数据 / 基准结果" %}
+{% elif annotation.colorCategory == "Red" %}
+{% set callout = "warning" %}{% set label = "🔴 局限性 / 缺点批评" %}
+{% else %}
+{% set callout = "quote" %}{% set label = "📝 批注高亮" %}
+{% endif %}
+{% if annotation.annotatedText or annotation.comment or annotation.imageRelativePath %}
+> [!{{callout}}]+ {{label}} (p. {{annotation.pageLabel}})
+{% if annotation.annotatedText %}> {{annotation.annotatedText | replace("\n", "\n> ")}}
+{% endif %}{% if annotation.imageRelativePath %}> ![[{{annotation.imageRelativePath}}]]
+{% endif %}{% if annotation.comment %}> ✍️ **批注**: {{annotation.comment | replace("\n", "\n> ")}}
+{% endif %}> [查看原文]({{annotation.desktopURI}})
 
-{%- if annotation.imageRelativePath %}
-> [!image]+ 🖼️ 提取图表 (p. {{annotation.pageLabel}})
-> ![[{{annotation.imageRelativePath}}]]
-{%- if annotation.comment %}
->> ✍️ **图表批注**: {{annotation.comment}}
-{%- endif %}
-[在 PDF 中定位]({{annotation.desktopURI}})
-{%- endif %}
-
-{% endfor -%}
+{% endif %}
+{% endfor %}
