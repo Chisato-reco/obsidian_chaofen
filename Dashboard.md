@@ -39,4 +39,4 @@ LIMIT 5
 
 收集论文 → 在 Zotero 批注 → 导入文献笔记 → 写下自己的理解 → 关联课题与实验。
 
-[[80_Guides/Obsidian与Zotero使用指南|联动使用指南]] · [[80_Guides/笔记整理约定|整理约定]] · [[95_Examples/示例索引|示例区]]
+[[80_Guides/科研知识库工作流与Obsidian必会操作|科研工作流与 Obsidian 操作手册]] · [[80_Guides/Obsidian与Zotero使用指南|联动使用指南]] · [[80_Guides/笔记整理约定|整理约定]] · [[95_Examples/示例索引|示例区]]

@@ -7,6 +7,7 @@
 - **[科研首页](Dashboard.md)**：日常入口，查看课题、阅读和实验。
 - [文献目录](10_Literature/文献目录.md) · [项目目录](20_Projects/项目目录.md) · [实验目录](30_Experiments/实验目录.md) · [知识目录](40_Knowledge/知识目录.md)
 - [Obsidian 与 Zotero 使用指南](80_Guides/Obsidian与Zotero使用指南.md)：安装、导入、引用、同步与故障排查。
+- [科研知识库工作流与 Obsidian 必会操作](80_Guides/科研知识库工作流与Obsidian必会操作.md)：从论文到概念、课题和实验的可执行流程。
 - [笔记整理约定](80_Guides/笔记整理约定.md)：命名、归档与新笔记放置规则。
 
 ## 目录
