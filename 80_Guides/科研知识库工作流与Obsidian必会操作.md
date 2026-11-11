@@ -36,6 +36,8 @@ Zotero 标注被导入，只代表摘录有了可搜索的落脚点；**知识�
 
 在 Zotero 的批注 comment 写自己的短问题，例如“这项结论是否只对晶体样品成立？”把**原文摘录**和**自己的判断**分开。要引用图表时用区域批注，并记下图号及它支持的结论。
 
+英文阅读时可用已安装的 Translate for Zotero 查词、查看音标或选段翻译。把关键术语的语境义和来源页码写入个人笔记；具体操作见 [[80_Guides/Zotero科研英语查词与翻译|科研英语查词指南]]。
+
 ### 3. 导入 Obsidian 文献笔记
 
 1. 保持 Zotero 运行，在 Obsidian 按 `Ctrl+P`，运行 **Zotero Integration: Create Literature Note**。
