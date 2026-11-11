@@ -1,0 +1,9 @@
+/* Readability only; no content hidden. */
+.workspace { --file-line-width: 860px; }
+.markdown-preview-view { line-height: 1.75; }
+.markdown-preview-view h1 { line-height: 1.35; }
+.markdown-preview-view h2 { margin-top: 1.8em; }
+.markdown-preview-view .callout { margin-block: 1em; }
+.research-home .metadata-container { opacity: 0.85; }
+.research-home table { width: 100%; }
+.research-home th { white-space: nowrap; }

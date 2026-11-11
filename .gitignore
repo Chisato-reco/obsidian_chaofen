@@ -33,3 +33,6 @@ scratch/
 *.xpi
 zotero.sqlite*
 better-bibtex.sqlite*
+
+# Local maintenance artifacts
+.maintenance/

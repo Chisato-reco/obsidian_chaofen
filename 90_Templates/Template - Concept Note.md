@@ -1,21 +1,22 @@
 ---
-title: "<% tp.file.title %>"
-created: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
-tags:
-  - knowledge
-  - 电镜超分
+title: '<% tp.file.title %>'
+created: <% tp.date.now("YYYY-MM-DD") %>
+tags: [knowledge, 电镜超分]
 ---
 
-# 🧠 <% tp.file.title %>
+# <% tp.file.title %>
 
-## 📌 概念定义 (Definition)
-> 
+[[40_Knowledge/知识目录|知识目录]]
 
-## 🔬 数学原理与推导 (Formulation)
+## 它解决什么问题
 
+## 定义与直观理解
 
-## 🛠️ 在电镜超分中的应用场景 (Applications in EM-SR)
+## 公式与适用条件
 
+## 在课题中的用途
 
-## 🔗 相关论文与概念 (References & Links)
-- 
+## 来源与相关笔记
+
+- 文献 / 页码：
+- 相关概念 / 实验：

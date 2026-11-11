@@ -19,6 +19,9 @@ zotero_link: "zotero://select/items/@zhang2018image"
 code_repo: "https://github.com/yulunzhang/RCAN"
 ---
 
+> [!warning] 预置示例
+> 此记录来自初始知识库搭建，指标与完成状态未经本次核验；仅作结构示例。
+
 # Image Super-Resolution Using Very Deep Residual Channel Attention Networks (RCAN)
 
 > [!abstract]+ **论文摘要 (Abstract)**

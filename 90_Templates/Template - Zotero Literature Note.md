@@ -3,6 +3,7 @@ title: {{title | dump | safe}}
 authors: {{authors | default("") | dump | safe}}
 year: {% if date %}{{date | format("YYYY")}}{% else %}null{% endif %}
 citekey: {{citekey | dump | safe}}
+cssclasses: [research-note]
 itemType: {{itemType | dump | safe}}
 publication: {{publicationTitle | default("") | dump | safe}}
 status: 📥未读
@@ -19,83 +20,80 @@ code_repo: ""
 
 # {{title}}
 
-> [!abstract]+ **论文摘要 (Abstract)**
+[[10_Literature/文献目录|返回文献目录]] · [[20_Projects/电镜超分/项目总览|关联课题]]
+
+**{{publicationTitle}}** · {% if date %}{{date | format("YYYY")}}{% endif %} · [Zotero]({{desktopURI}}){% if DOI %} · [DOI](https://doi.org/{{DOI}}){% endif %}
+
+{{pdfZoteroLink}}
+
+> [!abstract]- 原文摘要
 > {{abstractNote | default("") | replace("\n", "\n> ")}}
 
-## 📌 元数据与链接 (Metadata)
-- **作者 (Authors)**: {{authors}}
-- **发表年份 (Year)**: {% if date %}{{date | format("YYYY")}}{% endif %}
-- **发表期刊/会议 (Publication)**: *{{publicationTitle}}*
-- **DOI**: {% if DOI %}[{{DOI}}](https://doi.org/{{DOI}}){% endif %}
-- **Zotero 条目**: [打开 Zotero 条目]({{desktopURI}})
-- **PDF 文件**: {{pdfZoteroLink}}
-- **开源代码 (Code)**: 
-
----
-
-## 🎯 论文核心脉络 (Executive Summary)
+## 阅读总结
 
 {% persist "research-summary" %}
 {% if isFirstImport %}
+### 研究问题
+- 要解决什么问题？已有方法的不足是什么？
 
-### 1. 研究背景与核心痛点 (Background & Problem)
-- 这篇论文要解决的核心问题是什么？（例如：电镜低信噪比、电子束辐照损伤导致的分辨率限制等）
-- 现有方法（SOTA）存在哪些不足？
+### 方法与关键公式
+- 核心思路、假设与创新：
 
-### 2. 核心贡献与创新点 (Core Contributions)
-- 
-- 
-- 
+### 实验与证据
+- 数据集、评价方法、主要结果与局限：
 
-### 3. 方法与架构设计 (Methodology & Architecture)
-- **网络架构概述**: 
-- **关键技术细节与损失函数 (Loss Functions)**:
-
-### 4. 实验设置与评价指标 (Experiments & Benchmark)
-- **数据集 (Datasets)**: 
-- **评价指标 (PSNR / SSIM / FRC 等)**:
-- **核心对比结果**:
-
----
-
-## 💡 对当前科研（电镜超分）的启发与思考 (Implications)
-> 思考：该论文提出的思路/网络模块/采样策略/退化模型，能否直接或改进后迁移到我们的电镜超分项目中？
-
-- **可借鉴之处**: 
-- **潜在风险与电镜场景的差异**: 
-- **后续尝试实验计划**: 
-
+### 对电镜超分的启发
+- 能借鉴什么？适用条件是什么？下一步如何验证？
 {% endif %}
 {% endpersist %}
 
----
-
-## 📝 批注与高亮摘录 (Extracted Annotations)
+## 个人笔记
 
 {% persist "notes" %}
 {% if isFirstImport %}
-<!-- 你在阅读过程中写的个人笔记可写在此区域，重新从 Zotero 导入批注时不会被覆盖 -->
+<!-- 将自己的补充思考写在此保留区内。 -->
 {% endif %}
 {% endpersist %}
 
-{% for annotation in annotations %}
-{% if annotation.colorCategory == "Yellow" %}
-{% set callout = "quote" %}{% set label = "🟡 重点概念 / 理论依据" %}
-{% elif annotation.colorCategory == "Green" %}
-{% set callout = "note" %}{% set label = "🟢 创新方法 / 核心架构" %}
-{% elif annotation.colorCategory == "Blue" %}
-{% set callout = "example" %}{% set label = "🔵 实验数据 / 基准结果" %}
-{% elif annotation.colorCategory == "Red" %}
-{% set callout = "warning" %}{% set label = "🔴 局限性 / 缺点批评" %}
-{% else %}
-{% set callout = "quote" %}{% set label = "📝 批注高亮" %}
-{% endif %}
-{% if annotation.annotatedText or annotation.comment or annotation.imageRelativePath %}
-> [!{{callout}}]+ {{label}} (p. {{annotation.pageLabel}})
-{% if annotation.annotatedText %}> {{annotation.annotatedText | replace("\n", "\n> ")}}
-{% endif %}{% if annotation.imageRelativePath %}> ![[{{annotation.imageRelativePath}}]]
-{% endif %}{% if annotation.comment %}> ✍️ **批注**: {{annotation.comment | replace("\n", "\n> ")}}
-{% endif %}> [查看原文]({{annotation.desktopURI}})
+## 原文批注
 
-{% endif %}
+{% macro renderAnnotation(annotation) -%}
+{% if annotation.colorCategory == "Yellow" -%}
+{% set kind = "quote" -%}{% set label = "背景与概念" -%}
+{% elif annotation.colorCategory == "Green" -%}
+{% set kind = "note" -%}{% set label = "方法与创新" -%}
+{% elif annotation.colorCategory == "Blue" -%}
+{% set kind = "example" -%}{% set label = "实验与结果" -%}
+{% elif annotation.colorCategory == "Red" -%}
+{% set kind = "warning" -%}{% set label = "局限与疑问" -%}
+{% else -%}
+{% set kind = "quote" -%}{% set label = "摘录" -%}
+{% endif -%}
+{% if annotation.annotatedText or annotation.comment or annotation.imageRelativePath -%}
+> [!{{kind}}]- {{label}} · 第 {{annotation.pageLabel}} 页
+{% if annotation.annotatedText -%}
+> {{annotation.annotatedText | replace("\n", "\n> ")}}
+{% endif -%}
+{% if annotation.imageRelativePath -%}
+> ![[{{annotation.imageRelativePath}}]]
+{% endif -%}
+{% if annotation.comment -%}
+> **批注**：{{annotation.comment | replace("\n", "\n> ")}}
+{% endif -%}
+> [查看原文]({{annotation.desktopURI}})
+{% endif -%}
+{%- endmacro %}
+{% for annotation in annotations -%}
+{% if annotation.source != "pdf" %}
+{{renderAnnotation(annotation)}}
+{% endif -%}
 {% endfor %}
+{% set pdfAnnotations = annotations | filterby("source", "contains", "pdf") -%}
+{% if pdfAnnotations.length %}
+### PDF 内嵌批注备查
+
+以下摘录可能与 Zotero 批注重复，按需展开。
+{% for annotation in pdfAnnotations %}
+{{renderAnnotation(annotation)}}
+{% endfor -%}
+{% endif %}

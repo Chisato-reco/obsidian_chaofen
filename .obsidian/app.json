@@ -9,5 +9,7 @@
   "promptDelete": true,
   "livePreview": true,
   "spellcheck": false,
-  "strictLineBreaks": false
+  "strictLineBreaks": false,
+  "readableLineLength": true,
+  "defaultViewMode": "preview"
 }
