@@ -18,7 +18,7 @@
 
 | 项目 | 当前值 | 用途 |
 | --- | --- | --- |
-| 单词词典 | Bing Dictionary（必应词典） | 查询单词释义，服务提供时显示音标和发音 |
+| 单词词典 | Haici Dictionary（海词词典） | 原必应页面不再符合插件解析格式，已切换；提供释义与发音信息 |
 | 文段翻译 | Bing（必应翻译） | 辅助理解所选句子与短段落；2026-11-22 因知网证书错误切换 |
 | 原语言 | 英语 `en-US` | 插件默认值；另有自动检测选项 |
 | 目标语言 | 简体中文 `zh-CN` | 已写入本机插件设置 |
@@ -97,3 +97,8 @@
 - [Zotero 官方插件安装说明](https://www.zotero.org/support/plugins)
 - [WordPop 作者在 Zotero 论坛的介绍](https://forums.zotero.org/discussion/134381/wordpop-free-offline-dictionary-plugin-for-the-pdf-reader-zotero-7-10)
 - [Z-Transplit 作者文档](https://github.com/Liozhang/z-transplit)
+
+
+## 单词词典页面解析异常修复
+
+再次排查发现，必应词典对测试词返回的页面缺少插件要求的描述格式，不能解析中文词义；海词返回了符合插件选择器的释义和发音元素。已将单词服务从 bingdict 切换为 haicidict，整句翻译保持 Bing、目标语言保持简体中文。只验证了服务响应与解析结构，尚未验证阅读器选词浮窗。若整句仍失败，应保留报错内容进一步排查。
