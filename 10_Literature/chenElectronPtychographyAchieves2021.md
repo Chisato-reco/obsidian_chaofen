@@ -55,6 +55,8 @@ code_repo: ""
 
 ## 阅读总结
 
+%% begin research-summary %%
+
 
 ### 问题与背景
 - 这篇论文要解决的核心问题是什么？
