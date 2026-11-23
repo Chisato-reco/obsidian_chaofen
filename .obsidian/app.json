@@ -6,7 +6,7 @@
   "alwaysUpdateLinks": true,
   "useTab": false,
   "tabSize": 4,
-  "promptDelete": true,
+  "promptDelete": false,
   "livePreview": true,
   "spellcheck": false,
   "strictLineBreaks": false,
